@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { isAccessTokenValid } from "./helpers";
 import { UserProvider } from "../UserProvider";
 
-export const AuthProvider = ({ children }) => {
+export default ({ children }) => {
   const history = useHistory();
 
   const handleLogout = () => history.push("/login");

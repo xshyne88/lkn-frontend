@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
+import { ErrorBoundary } from "../router/ErrorBoundary";
 import { UserContext } from "../UserProvider";
-import Page from "../components/Page";
+import AppBar from "../AppBar";
 
 const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => {
   const { user } = useContext(UserContext);
@@ -22,3 +23,10 @@ const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => {
 };
 
 export default PrivateRoute;
+
+const Page = ({ children }) => (
+  <ErrorBoundary>
+    <AppBar />
+    <ErrorBoundary>{children}</ErrorBoundary>
+  </ErrorBoundary>
+);
