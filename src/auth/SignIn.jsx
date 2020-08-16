@@ -12,6 +12,7 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import FacebookIcon from "@material-ui/icons/Facebook";
 
 function Copyright() {
   return (
@@ -57,6 +58,19 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },
+  btn: {
+    width: "100%",
+    padding: 12,
+    border: "none",
+    borderRadius: 4,
+    marginTop: theme.spacing(1),
+    opacity: 0.85,
+    display: "inline-block",
+    lineHeight: 20,
+    textDecoration: "none",
+    backgroundColor: "#3B5998",
+    color: "white",
   },
 }));
 
@@ -110,6 +124,17 @@ export default function SignInSide() {
               className={classes.submit}
             >
               Sign In
+            </Button>
+            <Button
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={() =>
+                (window.location.href = "http://localhost:4000/auth/facebook")
+              }
+            >
+              <FacebookIcon /> Proceed with facebook
             </Button>
             <Grid container>
               <Grid item xs>

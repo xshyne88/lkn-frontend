@@ -9,7 +9,7 @@ const Logout = () => {
   localStorage.setItem("refresh-token", undefined);
   localStorage.setItem("user", undefined);
   //   setUser(null);
-  return <Redirect to="/login" />;
+  return <Redirect to="/" />;
 };
 
 export default Logout;

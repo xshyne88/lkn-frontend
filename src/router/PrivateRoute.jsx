@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { ErrorBoundary } from "../router/ErrorBoundary";
-import { UserContext } from "../UserProvider";
+import { UserContext } from "../auth/UserProvider";
 import AppBar from "../AppBar";
 
 const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => {
@@ -15,7 +15,7 @@ const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => {
             <Component {...props} />
           </Page>
         ) : (
-          <Redirect to="/login" />
+          <Redirect to="/" />
         )
       }
     />

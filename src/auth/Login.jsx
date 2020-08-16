@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import SignIn from "./SignIn";
 import { Redirect } from "react-router-dom";
-import { UserContext } from "../UserProvider";
+import { UserContext } from "./UserProvider";
 import { Loading } from "./Loading";
 import { isAccessTokenValid } from "./helpers";
 import SIGN_IN_USER from "../graphql/mutations/signInUserMutation";
