@@ -11,11 +11,12 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Checkbox from "@material-ui/core/Checkbox";
 import Avatar from "@material-ui/core/Avatar";
+import { useHistory } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
   },
 }));
@@ -37,6 +38,7 @@ export default function CheckboxListSecondary() {
     setChecked(newChecked);
   };
   const { loading, error, data } = useQuery(homeQuery);
+  let history = useHistory();
   if (error || loading) return <Loading />;
 
   const { events } = prune(data);
@@ -45,19 +47,24 @@ export default function CheckboxListSecondary() {
       {events.map((event) => {
         const labelId = `checkbox-list-secondary-label-${event.id}`;
         return (
-          <ListItem key={event.id} button>
+          <ListItem
+            key={event.id}
+            button
+            onClick={() => history.push(`/event/${event.id}`)}
+          >
             <ListItemText
               id={labelId}
               primary={event.name}
               secondary={event.startTime || "Jan 1"}
             />
             <ListItemSecondaryAction>
-              <Checkbox
-                edge="end"
-                onChange={handleToggle(event.id)}
-                checked={checked.indexOf(event.id) !== -1}
-                inputProps={{ "aria-labelledby": labelId }}
-              />
+              <Button>Click Me</Button>
+              {/* <Checkbox
+                  edge="end"
+                  onChange={handleToggle(event.id)}
+                  checked={checked.indexOf(event.id) !== -1}
+                  inputProps={{ "aria-labelledby": labelId }}
+                  /> */}
             </ListItemSecondaryAction>
           </ListItem>
         );

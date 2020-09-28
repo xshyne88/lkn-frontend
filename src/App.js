@@ -5,7 +5,8 @@ import Home from "./Home";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from "./router/PrivateRoute";
 import AuthProvider from "./auth/AuthProvider";
-import OauthLogin from "./auth/OauthLogin.jsx";
+import OauthLogin from "./auth/OauthLogin";
+import EventDetails from "./EventDetails";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/sign-in" component={SignIn} />
         <Route exact path="/oauth" component={OauthLogin} />
         <PrivateRoute exact path="/events" component={Home} />
+        <PrivateRoute exact path="/event/:id" component={EventDetails} />
         <PrivateRoute exact path="/logout" component={Logout} />
       </AuthProvider>
     </Router>
@@ -22,4 +24,3 @@ function App() {
 }
 
 export default App;
-// <Route exact path="/register" component={Register} />
