@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  bar: {
+    backgroundColor: theme.colorPalette.softGray,
+    flexGrow: 1,
+  },
 }));
 
 export default function ButtonAppBar() {
@@ -32,8 +36,8 @@ export default function ButtonAppBar() {
   /* if (previousPath) history.push(previousPath); */
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
+    <div className={classes.bar}>
+      <AppBar position="static" className={classes.bar}>
         <Toolbar>
           <IconButton
             edge="start"

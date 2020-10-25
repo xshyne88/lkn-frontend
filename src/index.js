@@ -23,7 +23,7 @@ const colorPalette = {
   tiffanyBlue: "#11A7BB",
   limeGreen: "#10BC10",
   brightNeon: "#7CF47C",
-  softGray: "#0e1111",
+  softGray: "#202020",
 };
 
 const THEME = createMuiTheme({

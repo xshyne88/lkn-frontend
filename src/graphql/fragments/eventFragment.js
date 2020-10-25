@@ -7,5 +7,6 @@ export default gql`
     startTime
     cost
     image
+    attending
   }
 `;
