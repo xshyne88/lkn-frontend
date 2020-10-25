@@ -11,6 +11,34 @@ import {
   HttpLink,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+// TODO: move this
+import { green } from "@material-ui/core/colors";
+
+const colorPalette = {
+  tan: "#f2b268",
+  orange: "#d4503d",
+  softBrown: "#94545",
+  neonGreen: "#2AB67B",
+  tiffanyBlue: "#11A7BB",
+  limeGreen: "#10BC10",
+  brightNeon: "#7CF47C",
+  softGray: "#0e1111",
+};
+
+const THEME = createMuiTheme({
+  typography: {
+    fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    fontSize: 14,
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    color: "white",
+  },
+  colorPalette: {
+    ...colorPalette,
+  },
+});
 
 const errorLink = onError(
   ({ graphQLErrors, networkError, operation, forward }) => {
@@ -55,9 +83,11 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
+    <ThemeProvider theme={THEME}>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

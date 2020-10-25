@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { UserContext } from "./auth/UserProvider";
 import Logout from "./auth/Logout";
 import { useHistory, useLocation } from "react-router-dom";
@@ -24,11 +25,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
   const classes = useStyles();
-
   const { user } = useContext(UserContext);
   let history = useHistory();
   let location = useLocation();
-  console.log(location);
   const previousPath = location.from;
   /* if (previousPath) history.push(previousPath); */
 
@@ -42,7 +41,7 @@ export default function ButtonAppBar() {
             color="inherit"
             aria-label="menu"
           >
-            <MenuIcon onClick={() => history.goBack()} />
+            <ArrowBackIcon onClick={() => history.goBack()} />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             LKN Volleyball

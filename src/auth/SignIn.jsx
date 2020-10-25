@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -13,6 +14,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import FacebookIcon from "@material-ui/icons/Facebook";
+import { isAccessTokenValid } from "./helpers";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,6 +45,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
+  let history = useHistory();
+  if (isAccessTokenValid()) {
+    history.push("/events");
+  }
 
   return (
     <Grid container component="main" className={classes.root}>
