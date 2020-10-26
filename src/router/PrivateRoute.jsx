@@ -26,7 +26,9 @@ export default PrivateRoute;
 
 const Page = ({ children }) => (
   <ErrorBoundary>
-    <ErrorBoundary>{children}</ErrorBoundary>
+    <div id="page-container">
+      <ErrorBoundary>{children}</ErrorBoundary>
+    </div>
   </ErrorBoundary>
 );
 

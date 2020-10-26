@@ -15,6 +15,7 @@ import Spinner from "./Spinner";
 import EmojiPeopleIcon from "@material-ui/icons/EmojiPeople";
 import signUpMutation from "./graphql/mutations/signUpMutation";
 import cancelSignUpMutation from "./graphql/mutations/cancelSignUpMutation";
+import { formatDateTime } from "./helpers";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -105,7 +106,7 @@ export default function EventCard({ event, idx = 0 }) {
             variant="body2"
             color="textSecondary"
           >
-            {dayjs(event.startTime).format("dddd, MMMM D h:mm A")}
+            {formatDateTime(event.startTime)}
           </Typography>
           {event.attending && <AttendingBanner classes={classes} />}
         </CardContent>

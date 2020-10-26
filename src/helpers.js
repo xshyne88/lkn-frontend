@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 export const getISONow = () => new Date(Date.now()).toISOString();
 
 export const getUserId = (user) => {
@@ -6,6 +8,10 @@ export const getUserId = (user) => {
   } catch {
     return user.id;
   }
+};
+
+export const formatDateTime = (time) => {
+  return dayjs(time).format("dddd, MMMM D h:mm A");
 };
 
 export const callMutation = ({ mutation, input }) =>
